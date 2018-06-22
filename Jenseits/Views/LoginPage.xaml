@@ -4,7 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     x:Class="Jenseits.Views.LoginPage"
     xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
-    xmlns:i18n="clr-namespace:Jenseits.Helpers">
+    xmlns:helpers="clr-namespace:Jenseits.Helpers">
     <ContentPage.Content>
         <StackLayout Padding="24">
             <ffimageloading:CachedImage
@@ -16,15 +16,17 @@
                 Source = "plane.png" />
             <Entry
                 Margin="0,10,0,0"
-                Placeholder="{i18n:Translate Email}"/>
+                Placeholder="{helpers:Translate Email}"/>
             <Entry
-                Placeholder="{i18n:Translate Password}"/>
+                Placeholder="{helpers:Translate Password}"/>
             <Button
-                Text="{i18n:Translate Login}"/>
+                Text="{helpers:Translate Login}"
+                IsEnabled="{Binding IsBusy}"
+                Command="{Binding LoginUserCommand}"/>
             <Label
                 HorizontalTextAlignment="Center"
                 FontSize="Small"
-                Text="{i18n:Translate Forgot}"/>
+                Text="{helpers:Translate Forgot}"/>
             <StackLayout
                 Margin="0,20,0,0"
                 HorizontalOptions="CenterAndExpand"

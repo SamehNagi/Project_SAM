@@ -70,5 +70,35 @@ namespace Jenseits {
                 return ResourceManager.GetString("Forgot", resourceCulture);
             }
         }
+        
+        internal static string MyTrips {
+            get {
+                return ResourceManager.GetString("MyTrips", resourceCulture);
+            }
+        }
+        
+        internal static string MyShipments {
+            get {
+                return ResourceManager.GetString("MyShipments", resourceCulture);
+            }
+        }
+        
+        internal static string MyProfile {
+            get {
+                return ResourceManager.GetString("MyProfile", resourceCulture);
+            }
+        }
+        
+        internal static string Settings {
+            get {
+                return ResourceManager.GetString("Settings", resourceCulture);
+            }
+        }
+        
+        internal static string About {
+            get {
+                return ResourceManager.GetString("About", resourceCulture);
+            }
+        }
     }
 }

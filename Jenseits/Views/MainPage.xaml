@@ -2,6 +2,16 @@
 <MasterDetailPage
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    x:Class="Jenseits.Views.MainPage">
-
+    x:Class="Jenseits.Views.MainPage"
+    xmlns:views="clr-namespace:Jenseits.Views">
+    <MasterDetailPage.Master>
+        <views:MenuPage x:Name="masterPage" />
+    </MasterDetailPage.Master>
+    <MasterDetailPage.Detail>
+        <NavigationPage>
+            <x:Arguments>
+                <views:MyTripsPage />
+            </x:Arguments>
+        </NavigationPage>
+    </MasterDetailPage.Detail>
 </MasterDetailPage>

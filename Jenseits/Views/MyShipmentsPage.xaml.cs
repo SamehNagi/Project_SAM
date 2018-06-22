@@ -5,14 +5,11 @@ using Xamarin.Forms;
 
 namespace Jenseits.Views
 {
-    public partial class MainPage : MasterDetailPage
+    public partial class MyShipmentsPage : ContentPage
     {
-        public static MainPage Instance { get; set; }
-
-        public MainPage()
+        public MyShipmentsPage()
         {
             InitializeComponent();
-            Instance = this;
         }
     }
 }

@@ -26,4 +26,19 @@
     <data name="Forgot" xml:space="preserve">
         <value>Forgot Password?</value>
     </data>
+    <data name="MyTrips" xml:space="preserve">
+        <value>My Trips</value>
+    </data>
+    <data name="MyShipments" xml:space="preserve">
+        <value>My Shipments</value>
+    </data>
+    <data name="MyProfile" xml:space="preserve">
+        <value>My Profile</value>
+    </data>
+    <data name="Settings" xml:space="preserve">
+        <value>Settings</value>
+    </data>
+    <data name="About" xml:space="preserve">
+        <value>About</value>
+    </data>
 </root>
