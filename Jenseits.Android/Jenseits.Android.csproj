@@ -110,7 +110,7 @@
     <AndroidResource Include="Resources\mipmap-xxhdpi\launcher_foreground.png" />
     <AndroidResource Include="Resources\mipmap-xxxhdpi\Icon.png" />
     <AndroidResource Include="Resources\mipmap-xxxhdpi\launcher_foreground.png" />
-    <AndroidResource Include="Resources\drawable\plane.png" />
+    <AndroidResource Include="Resources\drawable\plane_logo.png" />
     <AndroidResource Include="Resources\drawable\fb.png" />
     <AndroidResource Include="Resources\drawable\google.png" />
     <AndroidResource Include="Resources\drawable-hdpi\LoginBackground.png" />
@@ -133,6 +133,16 @@
     <AndroidResource Include="Resources\drawable-xxxhdpi\add.png" />
     <AndroidResource Include="Resources\drawable-xxxhdpi\fb.png" />
     <AndroidResource Include="Resources\drawable-xxxhdpi\googleplus.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\plane.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\return_plane.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\plane.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\return_plane.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\plane.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\return_plane.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\plane.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\return_plane.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\plane.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\return_plane.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\drawable\" />

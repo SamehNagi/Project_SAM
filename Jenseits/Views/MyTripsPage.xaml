@@ -4,13 +4,126 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     x:Class="Jenseits.Views.MyTripsPage"
     xmlns:helpers="clr-namespace:Jenseits.Helpers"
-    Title="{helpers:Translate MyTrips}">
+    Title="{helpers:Translate MyTrips}"
+    xmlns:scroll="clr-namespace:Xamarin.Forms.Extended;assembly=Xamarin.Forms.Extended.InfiniteScrolling">
 
     <ContentPage.ToolbarItems>
         <ToolbarItem
             Icon="add.png"/>
     </ContentPage.ToolbarItems>
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="CellTitleLbl" TargetType="Label">
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="Margin" Value="10,0,0,0" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
     
     <ContentPage.Content>
+        <ListView
+            SeparatorVisibility="None"
+            HasUnevenRows="true"
+            CachingStrategy="RecycleElement"
+            ItemsSource="{Binding TripsList}">
+
+            <ListView.Behaviors>
+                <scroll:InfiniteScrollBehavior />
+            </ListView.Behaviors>
+
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout
+                            
+                            Padding="10">
+                            <Frame
+                                BackgroundColor="#e3e3e3"
+                                Padding="10"
+                                HasShadow="false">
+                                <StackLayout>
+                                    <Grid CompressedLayout.IsHeadless="true">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="0.1*" />
+                                            <ColumnDefinition Width="0.4*" />
+                                            <ColumnDefinition Width="0.1*" />
+                                            <ColumnDefinition Width="0.4*" />
+                                        </Grid.ColumnDefinitions>
+                                        <Image
+                                            Grid.Column="0"
+                                            Source="plane.png"/>
+                                        <Label
+                                            Grid.Column="1"
+                                            Text="{Binding FromAirport}" />
+                                        <Image
+                                            Grid.Column="2"
+                                            Source="return_plane.png"/>
+                                        <Label
+                                            Grid.Column="3"
+                                            Text="{Binding ToAirport}" />
+                                    </Grid>
+                                    <StackLayout
+                                        Orientation="Horizontal"
+                                        CompressedLayout.IsHeadless="true">
+                                        <Label
+                                            Style="{StaticResource CellTitleLbl}"
+                                            Text="{helpers:Translate ItemWeight}"/>
+                                        <Label Text="{Binding ItemWeigth}" />
+                                    </StackLayout>
+                                    <StackLayout
+                                        Orientation="Horizontal"
+                                        CompressedLayout.IsHeadless="true">
+                                        <Label
+                                            Style="{StaticResource CellTitleLbl}"
+                                            Text="{helpers:Translate PackageSize}"/>
+                                        <Label Text="{Binding PackageSize}" />
+                                    </StackLayout>
+                                    <StackLayout
+                                        Orientation="Horizontal"
+                                        CompressedLayout.IsHeadless="true">
+                                        <Label
+                                            Style="{StaticResource CellTitleLbl}"
+                                            Text="{helpers:Translate PickUpMethod}"/>
+                                        <Label Text="{Binding PickUpMethod}" />
+                                    </StackLayout>
+                                    <StackLayout
+                                        Orientation="Horizontal"
+                                        CompressedLayout.IsHeadless="true">
+                                        <Label
+                                            Style="{StaticResource CellTitleLbl}"
+                                            Text="{helpers:Translate Status}"/>
+                                        <Label Text="{Binding Status}" />
+                                    </StackLayout>
+                                    <StackLayout
+                                        Orientation="Horizontal"
+                                        CompressedLayout.IsHeadless="true">
+                                        <Label
+                                            Style="{StaticResource CellTitleLbl}"
+                                            Text="{helpers:Translate ShippingDate}"/>
+                                        <Label Text="{Binding DepartureDate}" />
+                                    </StackLayout>
+                                </StackLayout>
+                            </Frame>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+
+            <ListView.Footer>
+                <Grid Padding="4" IsVisible="{Binding IsLoadingMore}">
+                    <Grid.Triggers>
+                        <Trigger TargetType="Grid" Property="IsVisible" Value="False">
+                            <Setter Property="HeightRequest" Value="0" />
+                        </Trigger>
+                    </Grid.Triggers>
+                    <ActivityIndicator
+                        IsRunning="true"
+                        Color="Black"
+                        WidthRequest="20"
+                        HeightRequest="20"/>
+                </Grid>
+            </ListView.Footer>
+        </ListView>
     </ContentPage.Content>
 </ContentPage>
