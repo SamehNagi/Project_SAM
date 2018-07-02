@@ -5,6 +5,12 @@
     x:Class="Jenseits.Views.MyTripsPage"
     xmlns:helpers="clr-namespace:Jenseits.Helpers"
     Title="{helpers:Translate MyTrips}">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem
+            Icon="add.png"/>
+    </ContentPage.ToolbarItems>
+    
     <ContentPage.Content>
     </ContentPage.Content>
 </ContentPage>

@@ -113,6 +113,26 @@
     <AndroidResource Include="Resources\drawable\plane.png" />
     <AndroidResource Include="Resources\drawable\fb.png" />
     <AndroidResource Include="Resources\drawable\google.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\LoginBackground.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\LoginBackground.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\LoginBackground.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\LoginBackground.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\LoginBackground.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\add.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\fb.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\googleplus.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\add.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\fb.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\googleplus.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\add.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\fb.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\googleplus.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\add.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\fb.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\googleplus.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\add.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\fb.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\googleplus.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\drawable\" />

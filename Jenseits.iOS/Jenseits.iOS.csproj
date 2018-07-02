@@ -177,7 +177,17 @@
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\plane.png" />
+    <BundleResource Include="Resources\LoginBackground.png" />
+    <BundleResource Include="Resources\LoginBackground%402x.png" />
+    <BundleResource Include="Resources\LoginBackground%403x.png" />
+    <BundleResource Include="Resources\add.png" />
+    <BundleResource Include="Resources\add%402x.png" />
+    <BundleResource Include="Resources\add%403x.png" />
     <BundleResource Include="Resources\fb.png" />
-    <BundleResource Include="Resources\google.png" />
+    <BundleResource Include="Resources\fb%402x.png" />
+    <BundleResource Include="Resources\fb%403x.png" />
+    <BundleResource Include="Resources\googleplus.png" />
+    <BundleResource Include="Resources\googleplus%402x.png" />
+    <BundleResource Include="Resources\googleplus%403x.png" />
   </ItemGroup>
 </Project>
