@@ -5,7 +5,8 @@
     x:Class="Jenseits.Views.MyTripsPage"
     xmlns:helpers="clr-namespace:Jenseits.Helpers"
     Title="{helpers:Translate MyTrips}"
-    xmlns:scroll="clr-namespace:Xamarin.Forms.Extended;assembly=Xamarin.Forms.Extended.InfiniteScrolling">
+    xmlns:scroll="clr-namespace:Xamarin.Forms.Extended;assembly=Xamarin.Forms.Extended.InfiniteScrolling"
+    IsBusy="{Binding IsBusy}">
 
     <ContentPage.ToolbarItems>
         <ToolbarItem
@@ -36,10 +37,9 @@
                 <DataTemplate>
                     <ViewCell>
                         <StackLayout
-                            
                             Padding="10">
                             <Frame
-                                BackgroundColor="#e3e3e3"
+                                BackgroundColor="#f2f2f2"
                                 Padding="10"
                                 HasShadow="false">
                                 <StackLayout>
@@ -64,40 +64,35 @@
                                             Text="{Binding ToAirport}" />
                                     </Grid>
                                     <StackLayout
-                                        Orientation="Horizontal"
-                                        CompressedLayout.IsHeadless="true">
+                                        Orientation="Horizontal">
                                         <Label
                                             Style="{StaticResource CellTitleLbl}"
                                             Text="{helpers:Translate ItemWeight}"/>
                                         <Label Text="{Binding ItemWeigth}" />
                                     </StackLayout>
                                     <StackLayout
-                                        Orientation="Horizontal"
-                                        CompressedLayout.IsHeadless="true">
+                                        Orientation="Horizontal">
                                         <Label
                                             Style="{StaticResource CellTitleLbl}"
                                             Text="{helpers:Translate PackageSize}"/>
                                         <Label Text="{Binding PackageSize}" />
                                     </StackLayout>
                                     <StackLayout
-                                        Orientation="Horizontal"
-                                        CompressedLayout.IsHeadless="true">
+                                        Orientation="Horizontal">
                                         <Label
                                             Style="{StaticResource CellTitleLbl}"
                                             Text="{helpers:Translate PickUpMethod}"/>
                                         <Label Text="{Binding PickUpMethod}" />
                                     </StackLayout>
                                     <StackLayout
-                                        Orientation="Horizontal"
-                                        CompressedLayout.IsHeadless="true">
+                                        Orientation="Horizontal">
                                         <Label
                                             Style="{StaticResource CellTitleLbl}"
                                             Text="{helpers:Translate Status}"/>
                                         <Label Text="{Binding Status}" />
                                     </StackLayout>
                                     <StackLayout
-                                        Orientation="Horizontal"
-                                        CompressedLayout.IsHeadless="true">
+                                        Orientation="Horizontal">
                                         <Label
                                             Style="{StaticResource CellTitleLbl}"
                                             Text="{helpers:Translate ShippingDate}"/>

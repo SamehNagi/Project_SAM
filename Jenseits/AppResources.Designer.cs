@@ -65,9 +65,21 @@ namespace Jenseits {
             }
         }
         
+        internal static string Reset {
+            get {
+                return ResourceManager.GetString("Reset", resourceCulture);
+            }
+        }
+        
         internal static string Forgot {
             get {
                 return ResourceManager.GetString("Forgot", resourceCulture);
+            }
+        }
+        
+        internal static string ForgotPasswordText {
+            get {
+                return ResourceManager.GetString("ForgotPasswordText", resourceCulture);
             }
         }
         

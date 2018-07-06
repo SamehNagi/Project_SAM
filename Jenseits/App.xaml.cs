@@ -4,6 +4,7 @@ using Xamarin.Forms.Xaml;
 using Jenseits.Views;
 using Plugin.Multilingual;
 using System.Globalization;
+using Jenseits.Views.Base;
 
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 namespace Jenseits
@@ -17,7 +18,7 @@ namespace Jenseits
             CrossMultilingual.Current.CurrentCultureInfo = new CultureInfo("en");
             AppResources.Culture = CrossMultilingual.Current.DeviceCultureInfo;
 
-            MainPage = new LoginPage();
+            MainPage = new BaseNavigationPage(new LoginPage());
         }
 
         protected override void OnStart()

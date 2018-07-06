@@ -3,15 +3,16 @@
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     x:Class="Jenseits.Views.MainPage"
+    xmlns:base="clr-namespace:Jenseits.Views.Base"
     xmlns:views="clr-namespace:Jenseits.Views">
     <MasterDetailPage.Master>
         <views:MenuPage x:Name="masterPage" />
     </MasterDetailPage.Master>
     <MasterDetailPage.Detail>
-        <NavigationPage>
+        <base:BaseNavigationPage>
             <x:Arguments>
                 <views:MyTripsPage />
             </x:Arguments>
-        </NavigationPage>
+        </base:BaseNavigationPage>
     </MasterDetailPage.Detail>
 </MasterDetailPage>

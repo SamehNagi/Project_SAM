@@ -10,6 +10,19 @@ namespace Jenseits.ViewModels
     {
         #region Properties & Commands
 
+        bool _isBusy;
+        public bool IsBusy
+        {
+            get
+            {
+                return _isBusy;
+            }
+            set
+            {
+                SetValue(ref _isBusy, value);
+            }
+        }
+
         InfiniteScrollCollection<Trip> _tripsList;
         public InfiniteScrollCollection<Trip> TripsList
         {

@@ -4,6 +4,7 @@ using Xamarin.Forms;
 using System.Threading.Tasks;
 using Jenseits.Helpers;
 using Jenseits.Views;
+using Jenseits.Views.Base;
 
 namespace Jenseits.ViewModels
 {
@@ -12,6 +13,8 @@ namespace Jenseits.ViewModels
         #region Properties & Commands
 
         public Command LoginUserCommand { get; set; }
+
+        public Command ForgotPasswordCommand { get; set; }
 
         bool _isBusy;
         public bool IsBusy
@@ -23,6 +26,19 @@ namespace Jenseits.ViewModels
             set
             {
                 SetValue(ref _isBusy, value);
+            }
+        }
+
+        bool _isLoggingIn;
+        public bool IsLoggingIn
+        {
+            get
+            {
+                return _isLoggingIn;
+            }
+            set
+            {
+                SetValue(ref _isLoggingIn, value);
                 Device.BeginInvokeOnMainThread(LoginUserCommand.ChangeCanExecute);
             }
         }
@@ -31,7 +47,8 @@ namespace Jenseits.ViewModels
 
         public LoginPageViewModel(INavigation navigation, Page pageReference) : base(navigation, pageReference)
         {
-            LoginUserCommand = new Command(async () => await ExecuteLoginUserCommand(), () => !IsBusy);
+            LoginUserCommand = new Command(async () => await ExecuteLoginUserCommand(), () => !IsLoggingIn);
+            ForgotPasswordCommand = new Command(async () => await ExecuteForgotPasswordCommand(), () => !IsBusy);
         }
 
         #region Methods
@@ -40,17 +57,39 @@ namespace Jenseits.ViewModels
         {
             try
             {
-                if(IsBusy)
+                if(IsLoggingIn)
                 {
                     return;
                 }
 
-                IsBusy = true;
+                IsLoggingIn = true;
 
                 //Mock
                 await Task.Delay(2000);
 
                 Application.Current.MainPage = new MainPage();
+            }
+            catch (Exception ex)
+            {
+                ExceptionHelper.LogException(this, nameof(ExecuteLoginUserCommand), ex);
+            }
+            finally
+            {
+                IsLoggingIn = false;
+            }
+        }
+
+        async Task ExecuteForgotPasswordCommand()
+        {
+            try
+            {
+                if (IsBusy)
+                {
+                    return;
+                }
+
+                IsBusy = true;
+                await Application.Current.MainPage.Navigation.PushAsync(new ForgotPasswordPage());
             }
             catch (Exception ex)
             {

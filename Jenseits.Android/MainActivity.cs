@@ -6,6 +6,7 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using Android.OS;
+using RoundedBoxView.Forms.Plugin.Droid;
 
 namespace Jenseits.Droid
 {
@@ -26,6 +27,8 @@ namespace Jenseits.Droid
             FFImageLoading.Forms.Platform.CachedImageRenderer.Init(true);
 
             Xamarin.Forms.Forms.Init(this, bundle);
+            RoundedBoxViewRenderer.Init();
+
             LoadApplication(new App());
         }
     }

@@ -14,5 +14,11 @@ namespace Jenseits.Views
             InitializeComponent();
             Instance = this;
         }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            IsBusy = false;
+        }
     }
 }

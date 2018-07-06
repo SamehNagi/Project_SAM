@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 
 using Foundation;
+using RoundedBoxView.Forms.Plugin.iOSUnified;
 using UIKit;
 
 namespace Jenseits.iOS
@@ -24,7 +25,11 @@ namespace Jenseits.iOS
         {
             FFImageLoading.Forms.Platform.CachedImageRenderer.Init();
             Xamarin.Forms.Forms.Init();
+
+            RoundedBoxViewRenderer.Init();
+
             LoadApplication(new App());
+            UIApplication.SharedApplication.SetStatusBarStyle(UIStatusBarStyle.LightContent, false);
 
             return base.FinishedLaunching(uiApplication, launchOptions);
         }
