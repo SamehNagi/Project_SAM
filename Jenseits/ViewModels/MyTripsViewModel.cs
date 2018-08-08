@@ -3,12 +3,32 @@ using Jenseits.Models;
 using Xamarin.Forms.Extended;
 using Jenseits.ViewModels.Base;
 using System.Threading.Tasks;
+using Xamarin.Forms;
+using Jenseits.Helpers;
+using Jenseits.Views;
 
 namespace Jenseits.ViewModels
 {
     public class MyTripsViewModel : BaseViewModel
     {
         #region Properties & Commands
+
+        public Command ItemSelectedCommand { get; set; }
+
+        bool _isInTransition;
+        public bool IsInTransition
+        {
+            get
+            {
+                return _isInTransition;
+            }
+            set
+            {
+                _isInTransition = value;
+                OnPropertyChanged(nameof(IsInTransition));
+                Device.BeginInvokeOnMainThread(ItemSelectedCommand.ChangeCanExecute);
+            }
+        }
 
         bool _isBusy;
         public bool IsBusy
@@ -54,6 +74,7 @@ namespace Jenseits.ViewModels
 
         public MyTripsViewModel()
         {
+            ItemSelectedCommand = new Command(async (lv) => await ExecuteItemSelectedCommand(lv), (lv) => !IsInTransition);
             TripsList = new InfiniteScrollCollection<Trip>
             {
                 OnLoadMore = async () =>
@@ -93,11 +114,44 @@ namespace Jenseits.ViewModels
                     PackageSize = PackageSize.Small,
                     ItemWeigth = "2 kg.",
                     PickUpMethod = "Myself",
-                    Status = "Matching a traveller..."
+                    Status = "Matching a traveller...",
+                    Verified = false
                 });
             }
 
             return items;
+        }
+
+        async Task ExecuteItemSelectedCommand(object obj)
+        {
+            try
+            {
+                var listView = (ListView)obj;
+                if(listView == null)
+                {
+                    return;
+                }
+
+                if(IsInTransition)
+                {
+                    return;
+                }
+
+                IsInTransition = true;
+
+                var tripSelected = listView.SelectedItem;
+                listView.SelectedItem = null;
+
+                await Application.Current.MainPage.Navigation.PushAsync(new ShipmentDetailPage());
+            }
+            catch (Exception ex)
+            {
+                ExceptionHelper.LogException(this, nameof(ExecuteItemSelectedCommand), ex);
+            }
+            finally
+            {
+                IsInTransition = false;
+            }
         }
 
         #endregion

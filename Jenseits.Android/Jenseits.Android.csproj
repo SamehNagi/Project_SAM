@@ -149,6 +149,16 @@
     <AndroidResource Include="Resources\drawable-xxhdpi\return_plane.png" />
     <AndroidResource Include="Resources\drawable-xxxhdpi\plane.png" />
     <AndroidResource Include="Resources\drawable-xxxhdpi\return_plane.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\checkmark.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\checkmark.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\checkmark.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\checkmark.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\checkmark.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\redAlert.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\redAlert.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\redAlert.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\redAlert.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\redAlert.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\drawable\" />

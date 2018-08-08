@@ -198,5 +198,11 @@
     <BundleResource Include="Resources\return_plane.png" />
     <BundleResource Include="Resources\return_plane%402x.png" />
     <BundleResource Include="Resources\return_plane%403x.png" />
+    <BundleResource Include="Resources\checkmark.png" />
+    <BundleResource Include="Resources\checkmark%402x.png" />
+    <BundleResource Include="Resources\checkmark%403x.png" />
+    <BundleResource Include="Resources\redAlert.png" />
+    <BundleResource Include="Resources\redAlert%402x.png" />
+    <BundleResource Include="Resources\redAlert%403x.png" />
   </ItemGroup>
 </Project>

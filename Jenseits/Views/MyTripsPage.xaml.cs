@@ -3,10 +3,11 @@ using System.Collections.Generic;
 
 using Xamarin.Forms;
 using Jenseits.ViewModels;
+using Jenseits.Views.Base;
 
 namespace Jenseits.Views
 {
-    public partial class MyTripsPage : ContentPage
+    public partial class MyTripsPage : BaseContentPage
     {
         MyTripsViewModel _vm;
         public MyTripsPage()

@@ -43,5 +43,9 @@ namespace Jenseits.Models
         public string ItemWeigth { get; set; }
 
         public string Status { get; set; }
+
+        public bool Verified { get; set; }
+
+        public string VerifiedStatus =>  Verified ? "checkmark.png" : "redAlert.png";
     }
 }

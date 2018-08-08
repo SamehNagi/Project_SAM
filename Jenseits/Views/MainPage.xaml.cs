@@ -11,6 +11,7 @@ namespace Jenseits.Views
 
         public MainPage()
         {
+            NavigationPage.SetHasNavigationBar(this, false);
             InitializeComponent();
             Instance = this;
         }

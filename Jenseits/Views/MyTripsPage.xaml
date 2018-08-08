@@ -1,38 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ContentPage
+<base:BaseContentPage
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     x:Class="Jenseits.Views.MyTripsPage"
     xmlns:helpers="clr-namespace:Jenseits.Helpers"
+    xmlns:controls="clr-namespace:Jenseits.Controls"
+    xmlns:base="clr-namespace:Jenseits.Views.Base"
     Title="{helpers:Translate MyTrips}"
     xmlns:scroll="clr-namespace:Xamarin.Forms.Extended;assembly=Xamarin.Forms.Extended.InfiniteScrolling"
     IsBusy="{Binding IsBusy}">
-
     <ContentPage.ToolbarItems>
         <ToolbarItem
             Icon="add.png"/>
     </ContentPage.ToolbarItems>
-
-    <ContentPage.Resources>
-        <ResourceDictionary>
-            <Style x:Key="CellTitleLbl" TargetType="Label">
-                <Setter Property="FontAttributes" Value="Bold" />
-                <Setter Property="Margin" Value="10,0,0,0" />
-            </Style>
-        </ResourceDictionary>
-    </ContentPage.Resources>
-    
     <ContentPage.Content>
-        <ListView
-            SeparatorVisibility="None"
+        <controls:BaseListView
             HasUnevenRows="true"
-            CachingStrategy="RecycleElement"
+            SeparatorVisibility="None"
+            ItemSelectedCommand="{Binding ItemSelectedCommand}"
             ItemsSource="{Binding TripsList}">
-
+            <x:Arguments>
+                <ListViewCachingStrategy>RecycleElement</ListViewCachingStrategy>
+            </x:Arguments>
             <ListView.Behaviors>
                 <scroll:InfiniteScrollBehavior />
             </ListView.Behaviors>
-
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
@@ -63,6 +55,8 @@
                                             Grid.Column="3"
                                             Text="{Binding ToAirport}" />
                                     </Grid>
+                                    <BoxView
+                                        Style="{StaticResource BaseSeparator}"/>
                                     <StackLayout
                                         Orientation="Horizontal">
                                         <Label
@@ -98,13 +92,33 @@
                                             Text="{helpers:Translate ShippingDate}"/>
                                         <Label Text="{Binding DepartureDate}" />
                                     </StackLayout>
+                                    <StackLayout
+                                        Orientation="Horizontal">
+                                        <StackLayout
+                                            HorizontalOptions="StartAndExpand"
+                                            Spacing="2">
+                                            <Label
+                                                Style="{StaticResource CellTitleLbl}"
+                                                Text="{helpers:Translate Verified}"/>
+                                            <Image Source="{Binding VerifiedStatus}" />
+                                        </StackLayout>
+                                        <StackLayout
+                                            HorizontalOptions="End"
+                                            Spacing="2">
+                                            <Label
+                                                Style="{StaticResource CellTitleLbl}"
+                                                Text="{helpers:Translate Activated}"/>
+                                            <Switch
+                                                HorizontalOptions="CenterAndExpand"
+                                                IsToggled="true" />
+                                        </StackLayout>
+                                    </StackLayout>
                                 </StackLayout>
                             </Frame>
                         </StackLayout>
                     </ViewCell>
                 </DataTemplate>
             </ListView.ItemTemplate>
-
             <ListView.Footer>
                 <Grid Padding="4" IsVisible="{Binding IsLoadingMore}">
                     <Grid.Triggers>
@@ -113,12 +127,9 @@
                         </Trigger>
                     </Grid.Triggers>
                     <ActivityIndicator
-                        IsRunning="true"
-                        Color="Black"
-                        WidthRequest="20"
-                        HeightRequest="20"/>
+                        Style="{StaticResource BaseActivityIndicator}"/>
                 </Grid>
             </ListView.Footer>
-        </ListView>
+        </controls:BaseListView>
     </ContentPage.Content>
-</ContentPage>
+</base:BaseContentPage>

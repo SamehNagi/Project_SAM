@@ -26,6 +26,7 @@ namespace Jenseits.Droid
 
             FFImageLoading.Forms.Platform.CachedImageRenderer.Init(true);
 
+            global::Xamarin.Forms.Forms.SetFlags("FastRenderers_Experimental");
             Xamarin.Forms.Forms.Init(this, bundle);
             RoundedBoxViewRenderer.Init();
 

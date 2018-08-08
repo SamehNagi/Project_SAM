@@ -62,4 +62,22 @@
     <data name="ShippingDate" xml:space="preserve">
         <value>Shipping date:</value>
     </data>
+    <data name="ShipmentDetails" xml:space="preserve">
+        <value>Shipment Details</value>
+    </data>
+    <data name="From" xml:space="preserve">
+        <value>From:</value>
+    </data>
+    <data name="To" xml:space="preserve">
+        <value>To:</value>
+    </data>
+    <data name="ItemDescription" xml:space="preserve">
+        <value>Item description:</value>
+    </data>
+    <data name="Verified" xml:space="preserve">
+        <value>Verified:</value>
+    </data>
+    <data name="Activated" xml:space="preserve">
+        <value>Activated:</value>
+    </data>
 </root>

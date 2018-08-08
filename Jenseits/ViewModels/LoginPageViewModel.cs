@@ -67,7 +67,7 @@ namespace Jenseits.ViewModels
                 //Mock
                 await Task.Delay(2000);
 
-                Application.Current.MainPage = new MainPage();
+                Application.Current.MainPage = new BaseNavigationPage(new MainPage());
             }
             catch (Exception ex)
             {

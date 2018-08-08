@@ -6,6 +6,7 @@ using Xamarin.Forms;
 using System.Threading.Tasks;
 using Jenseits.Helpers;
 using Jenseits.Views;
+using Jenseits.Views.Base;
 
 namespace Jenseits.ViewModels
 {
@@ -101,7 +102,7 @@ namespace Jenseits.ViewModels
                     {
                         return;
                     }
-                    MainPage.Instance.Detail = new NavigationPage(new MyTripsPage());
+                    MainPage.Instance.Detail = new BaseNavigationPage(new MyTripsPage());
                     return;
                 }
                 if(itemSelected.Title == AppResources.MyShipments)
@@ -110,7 +111,7 @@ namespace Jenseits.ViewModels
                     {
                         return;
                     }
-                    MainPage.Instance.Detail = new NavigationPage(new MyShipmentsPage());
+                    MainPage.Instance.Detail = new BaseNavigationPage(new MyShipmentsPage());
                     return;
                 }
                 if (itemSelected.Title == AppResources.MyProfile)
@@ -119,7 +120,7 @@ namespace Jenseits.ViewModels
                     {
                         return;
                     }
-                    MainPage.Instance.Detail = new NavigationPage(new MyProfilePage());
+                    MainPage.Instance.Detail = new BaseNavigationPage(new MyProfilePage());
                     return;
                 }
                 if (itemSelected.Title == AppResources.Settings)
@@ -128,7 +129,7 @@ namespace Jenseits.ViewModels
                     {
                         return;
                     }
-                    MainPage.Instance.Detail = new NavigationPage(new SettingsPage());
+                    MainPage.Instance.Detail = new BaseNavigationPage(new SettingsPage());
                     return;
                 }
                 if (itemSelected.Title == AppResources.About)
@@ -137,7 +138,7 @@ namespace Jenseits.ViewModels
                     {
                         return;
                     }
-                    MainPage.Instance.Detail = new NavigationPage(new AboutPage());
+                    MainPage.Instance.Detail = new BaseNavigationPage(new AboutPage());
                     return;
                 }
 

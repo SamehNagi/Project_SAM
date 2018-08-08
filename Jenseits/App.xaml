@@ -4,5 +4,34 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     x:Class="Jenseits.App">
     <Application.Resources>
+        <ResourceDictionary>
+            <!-- Label -->
+            <Style x:Key="CellTitleLbl" TargetType="Label">
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="Margin" Value="10,0,0,0" />
+            </Style>
+            <!-- Activity Indicator -->
+            <Style x:Key="BaseActivityIndicator" TargetType="ActivityIndicator">
+                <Setter Property="IsRunning" Value="true" />
+                <Setter Property="Color" Value="Black" />
+                <Setter Property="WidthRequest" Value="20" />
+                <Setter Property="HeightRequest" Value="20" />
+            </Style>
+            <!-- Box View -->
+            <Style x:Key="BaseSeparator" TargetType="BoxView">
+                <Setter Property="BackgroundColor" Value="Black" />
+                <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+                <Setter Property="HeightRequest" Value="1" />
+            </Style>
+            
+        </ResourceDictionary>
+        <!--<ContentPage.Resources>
+            <ResourceDictionary>
+                <Style x:Key="CellTitleLbl" TargetType="Label">
+                    <Setter Property="FontAttributes" Value="Bold" />
+                    <Setter Property="Margin" Value="10,0,0,0" />
+                </Style>
+            </ResourceDictionary>
+        </ContentPage.Resources>-->
     </Application.Resources>
 </Application>

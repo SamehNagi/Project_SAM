@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<base:BaseContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="Jenseits.Views.ShipmentDetailPage"
+    xmlns:helpers="clr-namespace:Jenseits.Helpers"
+    xmlns:base="clr-namespace:Jenseits.Views.Base"
+    Title="{helpers:Translate ShipmentDetails}">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout
+                Spacing="0"
+                Padding="10,20,10,0">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="0.2*" />
+                        <ColumnDefinition Width="0.3*" />
+                        <ColumnDefinition Width="0.2*" />
+                        <ColumnDefinition Width="0.3*" />
+                    </Grid.ColumnDefinitions>
+                    <Label
+                        Grid.Column="0"
+                        Text="{helpers:Translate From}"/>
+                    <Label
+                        Grid.Column="1"
+                        Text="{Binding FromAirport}"/>
+                    <Label
+                        Grid.Column="2"
+                        Text="{helpers:Translate To}"/>
+                    <Label
+                        Grid.Column="3"
+                        Text="{Binding ToAirport}"/>
+                </Grid>
+                <Label
+                    Margin="0,20,0,0"
+                    Text="{helpers:Translate ItemDescription}"/>
+                <Editor
+                    TextColor="Black"
+                    Text="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"
+                    IsEnabled="false"/>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</base:BaseContentPage>

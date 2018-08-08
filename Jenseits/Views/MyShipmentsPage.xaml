@@ -4,7 +4,108 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     x:Class="Jenseits.Views.MyShipmentsPage"
     xmlns:helpers="clr-namespace:Jenseits.Helpers"
-    Title="{helpers:Translate MyShipments}">
+    xmlns:controls="clr-namespace:Jenseits.Controls"
+    xmlns:base="clr-namespace:Jenseits.Views.Base"
+    Title="{helpers:Translate MyShipments}"
+    xmlns:scroll="clr-namespace:Xamarin.Forms.Extended;assembly=Xamarin.Forms.Extended.InfiniteScrolling"
+    IsBusy="{Binding IsBusy}">
     <ContentPage.Content>
+        <controls:BaseListView
+            HasUnevenRows="true"
+            SeparatorVisibility="None"
+            ItemSelectedCommand="{Binding ItemSelectedCommand}"
+            ItemsSource="{Binding TripsList}">
+            <x:Arguments>
+                <ListViewCachingStrategy>RecycleElement</ListViewCachingStrategy>
+            </x:Arguments>
+            <ListView.Behaviors>
+                <scroll:InfiniteScrollBehavior />
+            </ListView.Behaviors>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout
+                            Padding="10">
+                            <Frame
+                                BackgroundColor="#f2f2f2"
+                                Padding="10"
+                                HasShadow="false">
+                                <StackLayout>
+                                    <Grid CompressedLayout.IsHeadless="true">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="0.1*" />
+                                            <ColumnDefinition Width="0.4*" />
+                                            <ColumnDefinition Width="0.1*" />
+                                            <ColumnDefinition Width="0.4*" />
+                                        </Grid.ColumnDefinitions>
+                                        <Image
+                                            Grid.Column="0"
+                                            Source="plane.png"/>
+                                        <Label
+                                            Grid.Column="1"
+                                            Text="{Binding FromAirport}" />
+                                        <Image
+                                            Grid.Column="2"
+                                            Source="return_plane.png"/>
+                                        <Label
+                                            Grid.Column="3"
+                                            Text="{Binding ToAirport}" />
+                                    </Grid>
+                                    <StackLayout
+                                        Orientation="Horizontal">
+                                        <Label
+                                            Style="{StaticResource CellTitleLbl}"
+                                            Text="{helpers:Translate ItemWeight}"/>
+                                        <Label Text="{Binding ItemWeigth}" />
+                                    </StackLayout>
+                                    <StackLayout
+                                        Orientation="Horizontal">
+                                        <Label
+                                            Style="{StaticResource CellTitleLbl}"
+                                            Text="{helpers:Translate PackageSize}"/>
+                                        <Label Text="{Binding PackageSize}" />
+                                    </StackLayout>
+                                    <StackLayout
+                                        Orientation="Horizontal">
+                                        <Label
+                                            Style="{StaticResource CellTitleLbl}"
+                                            Text="{helpers:Translate PickUpMethod}"/>
+                                        <Label Text="{Binding PickUpMethod}" />
+                                    </StackLayout>
+                                    <StackLayout
+                                        Orientation="Horizontal">
+                                        <Label
+                                            Style="{StaticResource CellTitleLbl}"
+                                            Text="{helpers:Translate Status}"/>
+                                        <Label Text="{Binding Status}" />
+                                    </StackLayout>
+                                    <StackLayout
+                                        Orientation="Horizontal">
+                                        <Label
+                                            Style="{StaticResource CellTitleLbl}"
+                                            Text="{helpers:Translate ShippingDate}"/>
+                                        <Label Text="{Binding DepartureDate}" />
+                                    </StackLayout>
+                                </StackLayout>
+                            </Frame>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+            <ListView.Footer>
+                <Grid Padding="4" IsVisible="{Binding IsLoadingMore}">
+                    <Grid.Triggers>
+                        <Trigger TargetType="Grid" Property="IsVisible" Value="False">
+                            <Setter Property="HeightRequest" Value="0" />
+                        </Trigger>
+                    </Grid.Triggers>
+                    <ActivityIndicator
+                        IsRunning="true"
+                        Color="Black"
+                        WidthRequest="20"
+                        HeightRequest="20"/>
+                </Grid>
+            </ListView.Footer>
+        </controls:BaseListView>
     </ContentPage.Content>
 </ContentPage>
